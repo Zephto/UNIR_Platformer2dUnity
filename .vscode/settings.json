@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "UNIR_Platform2dUnity.sln"
+    "dotnet.defaultSolution": "UNIR_Platformer2dUnity.sln"
 }
