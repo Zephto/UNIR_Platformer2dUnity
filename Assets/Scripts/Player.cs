@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
 
 	private bool IsPlayerOnFloor()
 	{
-		Debug.DrawRay(playerBase.position, Vector3.down, Color.red, 0.4f);
+		Debug.DrawRay(playerBase.position, Vector3.down, Color.cyan, 0.4f);
 		return Physics2D.Raycast(playerBase.position, Vector3.down, distanceFloorDetection, layerFloor);
 	}
 
