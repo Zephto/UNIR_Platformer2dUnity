@@ -23,23 +23,26 @@ public class Murciegalo : MonoBehaviour
 
         currentDestination = waypoints[currentIndex].position;
         FocusToDestination();
-        StartCoroutine(Patrol());
     }
 
-    private void ReceiveDamage()
+	void OnEnable()
 	{
-		anim.SetTrigger("hit");
-		LeanTween.color(this.gameObject, Color.red, 0.0f);
-
-		LeanTween.delayedCall(0.3f, () =>
-		{
-			LeanTween.color(this.gameObject, Color.white, 0.0f);
-		});
+        StartCoroutine(Patrol());
 	}
+
+	private void ReceiveDamage()
+    {
+        anim.SetTrigger("hit");
+        LeanTween.color(this.gameObject, Color.red, 0.0f);
+
+        LeanTween.delayedCall(0.3f, () =>
+        {
+            LeanTween.color(this.gameObject, Color.white, 0.0f);
+        });
+    }
 
     IEnumerator Patrol()
     {
-
         while (true)
         {
             while (this.transform.position != currentDestination)
@@ -49,12 +52,10 @@ public class Murciegalo : MonoBehaviour
             }
             SetNewDestination();
         }
-
     }
 
     private void SetNewDestination()
     {
-
         currentIndex++;
         if (currentIndex >= waypoints.Length)
         {

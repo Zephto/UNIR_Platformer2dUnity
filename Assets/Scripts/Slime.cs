@@ -20,7 +20,11 @@ public class Slime : MonoBehaviour
 		lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
 		currentDestination = waypoints[currentIndex].position;
 		FocusToDestination();
-		StartCoroutine(Patrol());
+	}
+
+	void OnEnable()
+	{
+        StartCoroutine(Patrol());
 	}
 
 	private void ReceiveDamage()

@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 		lifeSystem = this.GetComponent<LifeSystem>();
 
 		lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
+		GlobalData.OnPlayerLife?.Invoke(lifeSystem.GetCurrentLife());
 	}
 
 	void Update()
@@ -127,15 +128,28 @@ public class Player : MonoBehaviour
 	private void ReceiveDamage()
 	{
 		Debug.Log("Receive Damage");
+		GlobalData.OnPlayerLife?.Invoke(lifeSystem.GetCurrentLife());
 
 		bloodParticles.Play();
-		anim.SetTrigger("isHurt");
 		LeanTween.color(this.gameObject, Color.red, 0.0f);
 
 		LeanTween.delayedCall(0.3f, () =>
 		{
 			LeanTween.color(this.gameObject, Color.white, 0.0f);
 		});
+
+		if (lifeSystem.GetCurrentLife() <= 0)
+		{
+			//Death
+			anim.SetTrigger("death");
+		}
+		else
+		{
+			//Hurt
+			anim.SetTrigger("isHurt");
+		}
+
+		this.enabled = false;
 	}
 
 	void OnDrawGizmos()

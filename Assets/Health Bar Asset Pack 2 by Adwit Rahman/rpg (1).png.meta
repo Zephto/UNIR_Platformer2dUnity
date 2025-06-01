@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 68a4ff139f591894e9fc1bceab2c3f22
+guid: 7cbdefb2d630c644db1ded1ac552939d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5972140380756631857
-    second: health_bar_0
+      213: 5372776407919291188
+    second: rpg (1)_0
+  - first:
+      213: -3750482850934594921
+    second: rpg (1)_1
+  - first:
+      213: 3321681590055085053
+    second: rpg (1)_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -139,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health_bar_0
+      name: rpg (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 49
-        height: 9
+        x: 31
+        y: 112
+        width: 82
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +160,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 131e3c7d80e41e250800000000000000
-      internalID: 5972140380756631857
+      spriteID: 43be0a34dafef8a40800000000000000
+      internalID: 5372776407919291188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg (1)_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 98
+        width: 82
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79269ddc7bb93fbc0800000000000000
+      internalID: -3750482850934594921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rpg (1)_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 84
+        width: 82
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df32030aecbf81e20800000000000000
+      internalID: 3321681590055085053
       vertices: []
       indices: 
       edges: []
@@ -173,8 +223,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      health_bar_0: 5972140380756631857
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

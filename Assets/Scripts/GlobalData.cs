@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GlobalData : MonoBehaviour
 {
@@ -8,4 +9,6 @@ public class GlobalData : MonoBehaviour
 		get => _currentLevel;
 		set => _currentLevel = value;
 	}
+
+	public static UnityEvent<float> OnPlayerLife = new UnityEvent<float>();
 }

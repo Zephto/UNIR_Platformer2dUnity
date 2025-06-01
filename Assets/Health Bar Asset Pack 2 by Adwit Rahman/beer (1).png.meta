@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 68a4ff139f591894e9fc1bceab2c3f22
+guid: baa97a257f0a0e543991fe8ed8e94c43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5972140380756631857
-    second: health_bar_0
+      213: -4294037516038265174
+    second: beer (1)_0
+  - first:
+      213: 2008640531554343217
+    second: beer (1)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -139,13 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health_bar_0
+      name: beer (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 49
-        height: 9
+        x: 8
+        y: 50
+        width: 8
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +157,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 131e3c7d80e41e250800000000000000
-      internalID: 5972140380756631857
+      spriteID: aa6a65441a38864c0800000000000000
+      internalID: -4294037516038265174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beer (1)_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 50
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1399fb4dbef10eb10800000000000000
+      internalID: 2008640531554343217
       vertices: []
       indices: 
       edges: []
@@ -173,8 +198,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      health_bar_0: 5972140380756631857
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

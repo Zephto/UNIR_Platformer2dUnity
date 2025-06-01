@@ -19,4 +19,6 @@ public class LifeSystem : MonoBehaviour
 		}
 	}
 
+	public float GetCurrentLife() => life;
+
 }
