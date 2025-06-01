@@ -46,14 +46,8 @@ public class MainLevel : MonoBehaviour
         }
 
         Debug.Log("Current level " + GlobalData.CurrentLevel);
-        //Check if is level zero
 
-        if (GlobalData.CurrentLevel == 0)
-        {
-            // TransitionScreen.Instance.Out(null);
-            // return;
-        }
-        else
+        if (GlobalData.CurrentLevel != 0)
         {
             //Activate only level objects
             for (int i = 1; i < GlobalData.CurrentLevel; i++)
@@ -61,7 +55,6 @@ public class MainLevel : MonoBehaviour
                 levelObjects[i - 1].SetActive(true);
             }
         }
-        ;
 
         LeanTween.delayedCall(this.gameObject, 0.1f, () =>
         {
