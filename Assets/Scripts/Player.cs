@@ -11,8 +11,12 @@ public class Player : MonoBehaviour
 	[SerializeField] private Transform playerBase;
 	[SerializeField] private float playerVelocity = 5;
 	[SerializeField] private float jumpForce = 12;
+	[SerializeField] private float coyoteTime = 0.02f;
 	[SerializeField] private float distanceFloorDetection = 0.15f;
 	[SerializeField] private LayerMask layerFloor;
+	private float coyoteTimeCounter;
+	private float floorCheckerTimer;
+	private bool isOnFloor = false;
 
 
 	[Header("Combat system")]
@@ -33,9 +37,25 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 		Movement();
+		// CoyoteCheck();
 		Jump();
 		StartAttack();
 	}
+
+	// private void CoyoteCheck()
+	// {
+	// 	floorCheckerTimer -= Time.deltaTime;
+	// 		Debug.Log("floorCheckerTimer =" + floorCheckerTimer);
+	// 	if (floorCheckerTimer <= 0)
+	// 	{
+	// 		isOnFloor = IsPlayerOnFloor();
+	// 		floorCheckerTimer = 0.1f;
+
+	// 		if (isOnFloor) coyoteTimeCounter = coyoteTime;
+	// 	}
+
+	// 	if (!isOnFloor) coyoteTime -= Time.deltaTime;
+	// }
 
 	private void StartAttack()
 	{
@@ -59,10 +79,12 @@ public class Player : MonoBehaviour
 
 	private void Jump()
 	{
+		// if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0f)
 		if (Input.GetKeyDown(KeyCode.Space) && IsPlayerOnFloor())
 		{
 			rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 			anim.SetTrigger("jump");
+			coyoteTimeCounter = 0f;
 		}
 	}
 
@@ -104,7 +126,7 @@ public class Player : MonoBehaviour
 		anim.SetTrigger("isHurt");
 		LeanTween.color(this.gameObject, Color.red, 0.0f);
 
-		LeanTween.delayedCall(0.5f, () =>
+		LeanTween.delayedCall(0.3f, () =>
 		{
 			LeanTween.color(this.gameObject, Color.white, 0.0f);
 		});

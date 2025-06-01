@@ -10,18 +10,32 @@ public class Murciegalo : MonoBehaviour
     private Vector3 currentDestination;
     private int currentIndex = 0;
 
+    private Animator anim;
+    private LifeSystem lifeSystem;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = this.GetComponent<Animator>();
+        lifeSystem = this.GetComponent<LifeSystem>();
+
+		lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
+
         currentDestination = waypoints[currentIndex].position;
         FocusToDestination();
         StartCoroutine(Patrol());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    private void ReceiveDamage()
+	{
+		anim.SetTrigger("hit");
+		LeanTween.color(this.gameObject, Color.red, 0.0f);
+
+		LeanTween.delayedCall(0.3f, () =>
+		{
+			LeanTween.color(this.gameObject, Color.white, 0.0f);
+		});
+	}
 
     IEnumerator Patrol()
     {
