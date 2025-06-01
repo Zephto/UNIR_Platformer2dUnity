@@ -3,7 +3,11 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     public static HUD Instance { get; private set; }
-    
+
+	[SerializeField] private GameObject menuObjects;
+	[SerializeField] private GameObject inGameObjects;
+	[SerializeField] private GameObject endingObjects;
+
     void Awake() {
 		if(Instance != null){
 			Debug.Log("Ya existe el hud we :v");

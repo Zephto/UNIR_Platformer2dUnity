@@ -295,6 +295,10 @@ PrefabInstance:
       value: RedBlood
       objectReference: {fileID: 0}
     - target: {fileID: 5527061771834779205, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527061771834779205, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.46799195
       objectReference: {fileID: 0}

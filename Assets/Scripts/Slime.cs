@@ -19,7 +19,7 @@ public class Slime : MonoBehaviour
 	{
 		anim = this.GetComponent<Animator>();
 		lifeSystem = this.GetComponent<LifeSystem>();
-		lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
+		lifeSystem.OnReceiveDamage.AddListener((value) => ReceiveDamage());
 		currentDestination = waypoints[currentIndex].position;
 		FocusToDestination();
 	}

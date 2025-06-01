@@ -7,6 +7,11 @@ public class Door : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		OnTouchDoor?.Invoke();
+		if (collision.CompareTag("PlayerHitbox"))
+		{
+			Debug.Log("TRIGGER CONM PLAYUER");
+			OnTouchDoor?.Invoke();
+			this.GetComponent<Collider2D>().enabled = false;
+		}
 	}
 }

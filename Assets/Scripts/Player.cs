@@ -35,8 +35,15 @@ public class Player : MonoBehaviour
 		anim = this.GetComponent<Animator>();
 		lifeSystem = this.GetComponent<LifeSystem>();
 
-		lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
-		GlobalData.OnPlayerLife?.Invoke(lifeSystem.GetCurrentLife());
+		lifeSystem.OnReceiveDamage.AddListener((value) => ReceiveDamage(value));
+		lifeSystem.OnReceiveHeal.AddListener((value) => ReceiveHeal(value));
+		GlobalData.OnPlayerLife?.Invoke(GlobalData.CurrentPlayerLife);
+		lifeSystem.SetLife(GlobalData.CurrentPlayerLife);
+	}
+
+	public void SetInitValues()
+	{
+		GlobalData.CurrentPlayerLife = lifeSystem.GetCurrentLife();
 	}
 
 	void Update()
@@ -129,10 +136,11 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	private void ReceiveDamage()
+	private void ReceiveDamage(float value)
 	{
 		Debug.Log("Receive Damage");
-		GlobalData.OnPlayerLife?.Invoke(lifeSystem.GetCurrentLife());
+		GlobalData.CurrentPlayerLife -= value;
+		GlobalData.OnPlayerLife?.Invoke(GlobalData.CurrentPlayerLife);
 
 		bloodParticles.Play();
 		LeanTween.color(this.gameObject, Color.red, 0.0f);
@@ -154,8 +162,12 @@ public class Player : MonoBehaviour
 			//Hurt
 			anim.SetTrigger("isHurt");
 		}
+	}
 
-		
+	private void ReceiveHeal(float value)
+	{
+		GlobalData.CurrentPlayerLife += value;
+		GlobalData.OnPlayerLife?.Invoke(GlobalData.CurrentPlayerLife);
 	}
 
 	void OnDrawGizmos()

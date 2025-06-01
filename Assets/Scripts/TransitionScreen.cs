@@ -44,11 +44,14 @@ public class TransitionScreen : MonoBehaviour {
 	void Start() {
 	}
 
-	void Update() {
-		if(Input.GetKeyDown(KeyCode.Alpha1)) StartIn();
-		if(Input.GetKeyDown(KeyCode.Alpha2)) StartOut();
-		if(Input.GetKeyDown(KeyCode.Alpha3)) In(null);
-		if(Input.GetKeyDown(KeyCode.Alpha4)) Out(null);
+	void Update()
+	{
+#if UNITY_EDITOR
+		if (Input.GetKeyDown(KeyCode.Alpha1)) StartIn();
+		if (Input.GetKeyDown(KeyCode.Alpha2)) StartOut();
+		if (Input.GetKeyDown(KeyCode.Alpha3)) In(null);
+		if (Input.GetKeyDown(KeyCode.Alpha4)) Out(null);
+#endif
 	}
 
 	#region Public Methods

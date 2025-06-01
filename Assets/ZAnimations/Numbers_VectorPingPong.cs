@@ -44,6 +44,12 @@ public class Numbers_VectorPingPong: AnimationBase {
 	[SerializeField] private float delay = 0f;
 
 	///<summary>
+	///Delay time when animation finish
+	///<summary>
+	[Tooltip("Set this variable if you want a delay when animation finish")]
+	[SerializeField] private bool useCurrentPosition;
+
+	///<summary>
 	///Leantween type, used to set the tween animation of the number change velocity
 	///</summary>
 	[SerializeField] private LeanTweenType tweenType = LeanTweenType.easeInOutSine;
@@ -75,8 +81,8 @@ public class Numbers_VectorPingPong: AnimationBase {
 	#endregion
 
 	public override void Start() {
-		fromVectorReference = fromVector;
-		toVectorReference	= toVector;
+		fromVectorReference = useCurrentPosition? fromVector + this.transform.localPosition: fromVector;
+		toVectorReference	= useCurrentPosition? toVector + this.transform.localPosition: toVector;
 		base.Start();
 	}
 
@@ -106,8 +112,8 @@ public class Numbers_VectorPingPong: AnimationBase {
 	///Initialize necessary variables to start the animation
 	///</summary>
 	private void InitializeVariables(){
-		fromVectorReference = fromVector;
-		toVectorReference	= toVector;
+		fromVectorReference = useCurrentPosition? fromVector + this.transform.localPosition: fromVector;
+		toVectorReference	= useCurrentPosition? toVector + this.transform.localPosition: toVector;
 		currentLoopCount = 0;
 	}
 

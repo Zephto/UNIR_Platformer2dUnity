@@ -5,15 +5,15 @@ public class LifeSystem : MonoBehaviour
 {
 
 	[SerializeField] private float life = 100f;
-
-	[HideInInspector] public UnityEvent OnReceiveDamage = new UnityEvent();
+	[HideInInspector] public UnityEvent<float> OnReceiveDamage = new UnityEvent<float>();
+	[HideInInspector] public UnityEvent<float> OnReceiveHeal = new UnityEvent<float>();
 
 	public void ReceiveDamage(float damage)
 	{
 
 		life -= damage;
-		OnReceiveDamage?.Invoke();
-		
+		OnReceiveDamage?.Invoke(damage);
+
 		if (life <= 0)
 		{
 			Destroy(this.gameObject);
@@ -21,5 +21,10 @@ public class LifeSystem : MonoBehaviour
 	}
 
 	public float GetCurrentLife() => life;
+	public void AddLife(float value) {
+		life += value;
+		OnReceiveHeal?.Invoke(value);
+	} 
+	public void SetLife(float value) => life = value;
 
 }

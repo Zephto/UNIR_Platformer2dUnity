@@ -15,26 +15,17 @@ public class MainLevel : MonoBehaviour
     [Header("Level construction references")]
     [SerializeField] private List<GameObject> levelObjects;
 
-    // void Awake() {
-	// 	if(Instance != null){
-	// 		Destroy(this.gameObject);
-	// 		return;
-	// 	}
-
-	// 	Instance = this;
-	// 	DontDestroyOnLoad(this);
-	// }
-
     void Start()
     {
         SceneChanger.Instance.OnSceneLoadComplete.AddListener(() => StartLevel());
         door.OnTouchDoor.AddListener(() => EndLevel());
-        if (GlobalData.CurrentLevel == 0)
+        if (GlobalData.CurrentLevel == 1)
         {
+            player.SetInitValues();
             timer.StartTimer();
             TransitionScreen.Instance.StartIn();
+            StartLevel();
         }
-        StartLevel();
     }
 
     private void StartLevel()
@@ -67,11 +58,13 @@ public class MainLevel : MonoBehaviour
         player.gameObject.SetActive(false);
         TransitionScreen.Instance.In(()=>
         {
+
             GlobalData.CurrentLevel++;
 
             //Finish game
             if (GlobalData.CurrentLevel >= levelObjects.Count)
             {
+                Debug.Log("ACABASTE EL JUEGOOO");
                 timer.StopTimer();
                 return;
             }
@@ -81,7 +74,5 @@ public class MainLevel : MonoBehaviour
                 SceneChanger.Instance.LoadSceneAsync("Level");
             });
         });
-
-        // sceneCharger.LoadSceneAsync("Level");
     }
 }

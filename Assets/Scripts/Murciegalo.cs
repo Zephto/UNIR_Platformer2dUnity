@@ -21,7 +21,7 @@ public class Murciegalo : MonoBehaviour
         anim = this.GetComponent<Animator>();
         lifeSystem = this.GetComponent<LifeSystem>();
 
-        lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
+        lifeSystem.OnReceiveDamage.AddListener((value) => ReceiveDamage());
 
         currentDestination = waypoints[currentIndex].position;
         FocusToDestination();
@@ -89,14 +89,6 @@ public class Murciegalo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Colisionando con algo + " + collision.gameObject.name);
-
-        if (collision.gameObject.CompareTag("Collectables"))
-        {
-            Debug.Log("la gemaaa");
-            return;
-        }
-
         if (collision.gameObject.CompareTag("PlayerDetection"))
         {
             Debug.Log("Player Detectado");
