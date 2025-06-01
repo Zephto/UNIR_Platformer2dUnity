@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
 	[SerializeField] private float attackDamage;
 	[SerializeField] private LayerMask layerToAttack;
 
+	[Header("Movement system")]
+	[SerializeField] private ParticleSystem bloodParticles;
+
 	void Start()
 	{
 		rb = this.GetComponent<Rigidbody2D>();
@@ -123,6 +126,9 @@ public class Player : MonoBehaviour
 
 	private void ReceiveDamage()
 	{
+		Debug.Log("Receive Damage");
+
+		bloodParticles.Play();
 		anim.SetTrigger("isHurt");
 		LeanTween.color(this.gameObject, Color.red, 0.0f);
 
