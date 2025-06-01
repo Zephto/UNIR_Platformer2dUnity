@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 	private Rigidbody2D rb;
 	private float inputH;
 	private Animator anim;
+	private LifeSystem lifeSystem;
 
 	[Header("Movement system")]
 	[SerializeField] private Transform playerBase;
@@ -24,6 +25,9 @@ public class Player : MonoBehaviour
 	{
 		rb = this.GetComponent<Rigidbody2D>();
 		anim = this.GetComponent<Animator>();
+		lifeSystem = this.GetComponent<LifeSystem>();
+
+		lifeSystem.OnReceiveDamage.AddListener(() => ReceiveDamage());
 	}
 
 	void Update()
@@ -64,8 +68,11 @@ public class Player : MonoBehaviour
 
 	private bool IsPlayerOnFloor()
 	{
+		bool isLanding = Physics2D.Raycast(playerBase.position, Vector3.down, distanceFloorDetection, layerFloor);
 		Debug.DrawRay(playerBase.position, Vector3.down, Color.cyan, 0.4f);
-		return Physics2D.Raycast(playerBase.position, Vector3.down, distanceFloorDetection, layerFloor);
+
+		Debug.Log(isLanding);
+		return isLanding;
 	}
 
 	private void Movement()
@@ -90,6 +97,17 @@ public class Player : MonoBehaviour
 		{
 			anim.SetBool("running", false);
 		}
+	}
+
+	private void ReceiveDamage()
+	{
+		anim.SetTrigger("isHurt");
+		LeanTween.color(this.gameObject, Color.red, 0.0f);
+
+		LeanTween.delayedCall(0.5f, () =>
+		{
+			LeanTween.color(this.gameObject, Color.white, 0.0f);
+		});
 	}
 
 	void OnDrawGizmos()
