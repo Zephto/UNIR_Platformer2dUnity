@@ -7,10 +7,12 @@ public class Hud_PlayerLife : MonoBehaviour
 
 	void Start()
 	{
+		lifeImage = this.GetComponent<Image>();
 		GlobalData.OnPlayerLife.AddListener((value) => SetLife(value));
 	}
 
 	private void SetLife(float value) {
+		Debug.Log("current life: " + value);
 		lifeImage.fillAmount = value / 100f;
 	}
 }

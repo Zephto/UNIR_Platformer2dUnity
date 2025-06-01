@@ -104,6 +104,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7965627953417901902}
+  - {fileID: 7051448062230815991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2019011909956478149
@@ -123,6 +124,8 @@ MonoBehaviour:
   - {fileID: 0}
   walkVelocity: 2
   attackDamage: 20
+  slimeBlood: {fileID: 8355365338649106721}
+  gem: {fileID: 6198791499949815235, guid: 2f024391df754234da362383c56cd13d, type: 3}
 --- !u!114 &1509268636620581516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2a7f59569b52e4887b046ca10021cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 60
+  life: 30
   OnReceiveDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -183,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1b291f9b1633ede4bbb58677083f01c2, type: 3}
+  m_Sprite: {fileID: 1576031485842391493, guid: 0a210a6ac82f1214a89ccd8911af22c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -279,3 +282,82 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.06022501, y: -0.33879328}
   m_Radius: 0.56267023
+--- !u!1001 &4557688882582323044
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2130317310389589584}
+    m_Modifications:
+    - target: {fileID: 4268626454932233523, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_Name
+      value: RedBlood
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527061771834779205, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.46799195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527061771834779205, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527061771834779205, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.1511659
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.217
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+--- !u!4 &7051448062230815991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6817305532508052371, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+  m_PrefabInstance: {fileID: 4557688882582323044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8355365338649106721 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5527061771834779205, guid: 6a5054d7d9e5d4147aa151faafea1bf1, type: 3}
+  m_PrefabInstance: {fileID: 4557688882582323044}
+  m_PrefabAsset: {fileID: 0}

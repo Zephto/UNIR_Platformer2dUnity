@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHitbox
   - PlayerDetection
+  - Collectables
   layers:
   - Default
   - TransparentFX

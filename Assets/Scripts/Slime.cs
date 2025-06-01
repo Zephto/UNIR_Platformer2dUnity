@@ -7,6 +7,8 @@ public class Slime : MonoBehaviour
 	[SerializeField] private Transform[] waypoints;
 	[SerializeField] private float walkVelocity;
 	[SerializeField] private float attackDamage;
+	[SerializeField] private ParticleSystem slimeBlood;
+	[SerializeField] private GameObject gem;
 	private Vector3 currentDestination;
 	private int currentIndex = 0;
 	private Animator anim;
@@ -30,12 +32,19 @@ public class Slime : MonoBehaviour
 	private void ReceiveDamage()
 	{
 		anim.SetTrigger("hit");
+		slimeBlood.Play();
 		LeanTween.color(this.gameObject, Color.red, 0.0f);
 
 		LeanTween.delayedCall(0.3f, () =>
 		{
 			LeanTween.color(this.gameObject, Color.white, 0.0f);
 		});
+
+		if (lifeSystem.GetCurrentLife() <= 0 && Random.value > 0.5)
+        {
+            GameObject newGem = Instantiate(gem, this.transform.position, this.transform.rotation);
+            newGem.GetComponent<Rigidbody2D>().AddForce(Vector3.up, ForceMode2D.Impulse);
+        }
 	}
 
 	// Update is called once per frame

@@ -10,9 +10,10 @@ public class LifeSystem : MonoBehaviour
 
 	public void ReceiveDamage(float damage)
 	{
-		OnReceiveDamage?.Invoke();
 
 		life -= damage;
+		OnReceiveDamage?.Invoke();
+		
 		if (life <= 0)
 		{
 			Destroy(this.gameObject);

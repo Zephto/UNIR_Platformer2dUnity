@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 	private float coyoteTimeCounter;
 	private float floorCheckerTimer;
 	private bool isOnFloor = false;
+	private bool canPlay = true;
 
 
 	[Header("Combat system")]
@@ -40,10 +41,13 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
-		Movement();
-		// CoyoteCheck();
-		Jump();
-		StartAttack();
+		if (canPlay)
+		{
+			Movement();
+			// CoyoteCheck();
+			Jump();
+			StartAttack();
+		}
 	}
 
 	// private void CoyoteCheck()
@@ -142,6 +146,8 @@ public class Player : MonoBehaviour
 		{
 			//Death
 			anim.SetTrigger("death");
+			canPlay = false;
+			// this.enabled = false;
 		}
 		else
 		{
@@ -149,7 +155,7 @@ public class Player : MonoBehaviour
 			anim.SetTrigger("isHurt");
 		}
 
-		this.enabled = false;
+		
 	}
 
 	void OnDrawGizmos()
