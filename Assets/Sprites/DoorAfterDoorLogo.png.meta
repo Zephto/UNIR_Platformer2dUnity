@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 36f5c2a3e6ffb3e429421d380dfc8c96
+guid: 01ae3b3241ac7734aa18ee4604645d31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7443756053782179069
-    second: background_0
+      213: 1355342121806986759
+    second: DoorAfterDoorLogo_0
+  - first:
+      213: 6578424889783418218
+    second: DoorAfterDoorLogo_1
+  - first:
+      213: 2400321245291007319
+    second: DoorAfterDoorLogo_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -52,7 +58,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 13, y: 14, z: 13, w: 11}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -139,23 +145,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background_0
+      name: DoorAfterDoorLogo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 375
-        height: 227
+        x: 34
+        y: 71
+        width: 287
+        height: 137
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 15, y: 15, z: 21, w: 13}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30356abce4772b890800000000000000
-      internalID: -7443756053782179069
+      spriteID: 70efd679a742fc210800000000000000
+      internalID: 1355342121806986759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorAfterDoorLogo_1
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 39
+        width: 1105
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6df02155924b4b50800000000000000
+      internalID: 6578424889783418218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorAfterDoorLogo_2
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 71
+        width: 89
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75dc4648477af4120800000000000000
+      internalID: 2400321245291007319
       vertices: []
       indices: 
       edges: []
@@ -164,8 +214,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cc934d81973e24446b3e7c9f7c39dbd5
-    internalID: 279539372
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -174,7 +224,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      background_0: -7443756053782179069
+      DoorAfterDoorLogo_0: 1355342121806986759
+      DoorAfterDoorLogo_1: 6578424889783418218
+      DoorAfterDoorLogo_2: 2400321245291007319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

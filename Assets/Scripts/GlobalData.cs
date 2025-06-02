@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 public class GlobalData : MonoBehaviour
 {
-	public static GlobalData Instance { get; private set; }
 	private static float _currentPlayerLife = 100;
 	public static float CurrentPlayerLife
 	{
@@ -24,15 +23,5 @@ public class GlobalData : MonoBehaviour
 	}
 
 	public static UnityEvent<float> OnPlayerLife = new UnityEvent<float>();
-
-	void Awake() {
-		if(Instance != null){
-			Debug.Log("Ya existe el transition screen we :v");
-			Destroy(this.gameObject);
-			return;
-		}
-
-		Instance = this;
-		DontDestroyOnLoad(this.gameObject);
-	}
+	
 }

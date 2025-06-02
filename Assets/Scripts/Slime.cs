@@ -40,11 +40,11 @@ public class Slime : MonoBehaviour
 			LeanTween.color(this.gameObject, Color.white, 0.0f);
 		});
 
-		if (lifeSystem.GetCurrentLife() <= 0 && Random.value > 0.5)
-        {
-            GameObject newGem = Instantiate(gem, this.transform.position, this.transform.rotation);
-            newGem.GetComponent<Rigidbody2D>().AddForce(Vector3.up, ForceMode2D.Impulse);
-        }
+		// if (lifeSystem.GetCurrentLife() <= 0 && Random.value > 0.5)
+        // {
+        //     GameObject newGem = Instantiate(gem, this.transform.position, this.transform.rotation);
+        //     newGem.GetComponent<Rigidbody2D>().AddForce(Vector3.up, ForceMode2D.Impulse);
+        // }
 	}
 
 	// Update is called once per frame

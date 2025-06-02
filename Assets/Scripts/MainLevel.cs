@@ -19,17 +19,19 @@ public class MainLevel : MonoBehaviour
     {
         SceneChanger.Instance.OnSceneLoadComplete.AddListener(() => StartLevel());
         door.OnTouchDoor.AddListener(() => EndLevel());
+        
+    }
+
+    public void StartLevel()
+    {
         if (GlobalData.CurrentLevel == 1)
         {
             player.SetInitValues();
             timer.StartTimer();
-            TransitionScreen.Instance.StartIn();
-            StartLevel();
+            // TransitionScreen.Instance.StartIn();
+            // StartLevel();
         }
-    }
 
-    private void StartLevel()
-    {
         //Disable all elements
         foreach (GameObject obj in levelObjects)
         {

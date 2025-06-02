@@ -170,6 +170,8 @@ public class Player : MonoBehaviour
 		GlobalData.OnPlayerLife?.Invoke(GlobalData.CurrentPlayerLife);
 	}
 
+	public void CanPlay(bool set) => canPlay = set;
+
 	void OnDrawGizmos()
 	{
 		Gizmos.DrawSphere(attackPoint.position, radioAttack);

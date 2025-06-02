@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GemBehaviour : MonoBehaviour
 {
+	[SerializeField] private ParticleSystem ps;
+
 	void Start()
 	{
 		if (Random.value > 0.4f)
@@ -14,7 +16,8 @@ public class GemBehaviour : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("PlayerHitbox"))
 		{
-			Debug.Log("Colisiono con el jugador");
+			ParticleSystem newPs = Instantiate(ps, this.transform.position, Quaternion.identity);
+			newPs.Play();
 			collision.GetComponent<LifeSystem>().AddLife(10f);
 			Destroy(this.gameObject);
 			return;
