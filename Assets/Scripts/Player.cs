@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
 		lifeSystem.OnReceiveDamage.AddListener((value) => ReceiveDamage(value));
 		lifeSystem.OnReceiveHeal.AddListener((value) => ReceiveHeal(value));
+		lifeSystem.OnDeath.AddListener(()=>Death());
+
 		GlobalData.OnPlayerLife?.Invoke(GlobalData.CurrentPlayerLife);
 		lifeSystem.SetLife(GlobalData.CurrentPlayerLife);
 	}
@@ -168,6 +170,17 @@ public class Player : MonoBehaviour
 	{
 		GlobalData.CurrentPlayerLife += value;
 		GlobalData.OnPlayerLife?.Invoke(GlobalData.CurrentPlayerLife);
+	}
+
+	private void Death()
+	{
+		LeanTween.delayedCall(1f, () =>
+		{
+			TransitionScreen.Instance.In(() =>
+			{
+				GlobalData.OnGameOver?.Invoke();
+			});
+		});
 	}
 
 	public void CanPlay(bool set) => canPlay = set;

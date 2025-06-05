@@ -28,8 +28,6 @@ public class MainLevel : MonoBehaviour
         {
             player.SetInitValues();
             timer.StartTimer();
-            // TransitionScreen.Instance.StartIn();
-            // StartLevel();
         }
 
         //Disable all elements
@@ -68,6 +66,12 @@ public class MainLevel : MonoBehaviour
             {
                 Debug.Log("ACABASTE EL JUEGOOO");
                 timer.StopTimer();
+                GlobalData.OnEndGame?.Invoke();
+                LeanTween.delayedCall(this.gameObject, 0.1f, () =>
+                {
+                    player.CanPlay(false);
+                    TransitionScreen.Instance.Out(null);
+                });
                 return;
             }
 

@@ -22,6 +22,14 @@ public class GlobalData : MonoBehaviour
 		set => _currentLevel = value;
 	}
 
+	public static void ResetGlobalValues()
+	{
+		_currentLevel = 1;
+		_currentPlayerLife = 100;
+	}
+
 	public static UnityEvent<float> OnPlayerLife = new UnityEvent<float>();
+	public static UnityEvent OnEndGame = new UnityEvent();
+	public static UnityEvent OnGameOver = new UnityEvent();
 	
 }

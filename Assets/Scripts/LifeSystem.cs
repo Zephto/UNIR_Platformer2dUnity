@@ -7,6 +7,7 @@ public class LifeSystem : MonoBehaviour
 	[SerializeField] private float life = 100f;
 	[HideInInspector] public UnityEvent<float> OnReceiveDamage = new UnityEvent<float>();
 	[HideInInspector] public UnityEvent<float> OnReceiveHeal = new UnityEvent<float>();
+	[HideInInspector] public UnityEvent OnDeath = new UnityEvent();
 
 	public void ReceiveDamage(float damage)
 	{
@@ -16,6 +17,7 @@ public class LifeSystem : MonoBehaviour
 
 		if (life <= 0)
 		{
+			OnDeath?.Invoke();
 			Destroy(this.gameObject);
 		}
 	}
